@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership Plans - FitPro Gym</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f3f3;
+        }
+
+        header {
+            background-color: #282c34;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: #00d1b2;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 16px;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            color: #333;
+            text-align: center;
+        }
+
+        .plan {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .plan h3 {
+            color: #00d1b2;
+            margin-bottom: 10px;
+        }
+
+        .plan p {
+            margin: 10px 0;
+            color: #555;
+        }
+
+        .plan button {
+            background-color: #00d1b2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .plan button:hover {
+            background-color: #00b09b;
+        }
+
+        .calculator {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+
+        .calculator label {
+            display: block;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        .calculator input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        .calculator .total {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function calculateTotal() {
+            const basePrice = 30; // Base price for the basic plan
+            let total = basePrice;
+
+            // Check amenities
+            if (document.getElementById('amenity1').checked) total += 10; // Gym Classes
+            if (document.getElementById('amenity2').checked) total += 15; // Swimming Pool
+            if (document.getElementById('amenity3').checked) total += 20; // Spa Access
+
+            // Display total
+            document.getElementById('totalCost').textContent = `$${total}`;
+        }
+    </script>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>FitPro Gym Membership Plans</h1>
+        <nav>
+            
+            <a href="index.html">About Us</a>
+            
+        </nav>
+    </header>
+
+    <!-- Main Section -->
+    <main>
+        <h2>Choose Your Plan and Customize Your Amenities</h2>
+
+        <!-- Membership Plan with Amenities Calculator -->
+        <div class="plan">
+            <h3>Basic Plan</h3>
+            <p>Base Price: $30/month</p>
+            <p>Customize your membership by adding amenities:</p>
+
+            <div class="calculator">
+                <label>
+                    <input type="checkbox" id="amenity1" onclick="calculateTotal()"> Access to Gym Classes (+$10)
+                </label>
+                <label>
+                    <input type="checkbox" id="amenity2" onclick="calculateTotal()"> Access to Swimming Pool (+$15)
+                </label>
+                <label>
+                    <input type="checkbox" id="amenity3" onclick="calculateTotal()"> Access to Spa (+$20)
+                </label>
+
+                <p class="total">Total Cost: <span id="totalCost">$30</span></p>
+            </div>
+
+            <button onclick="location.href='signup.html'">Sign Up</button>
+        </div>
+
+        <!-- Premium Plan -->
+        <div class="plan">
+            <h3>Premium Plan</h3>
+            <p>Price: $65/month</p>
+            <p>Includes all amenities, plus additional perks and discounts for military members!</p>
+            <button onclick="location.href='signup.html'">Sign Up</button>
+        </div>
+    </main>
+
+    <footer style="background-color: #282c34; color: white; text-align: center; padding: 10px; margin-top: 20px;">
+        <p>© 2024 FitPro Gym. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
+
+
